@@ -1,0 +1,44 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://test:test@101.201.210.163:9001/eureka/
+
+
+
+# 构建路由地址
+zuul:
+  biz:
+    auth:
+      enable: 1
+      token: 123
+  routes:
+    # 这里可以自定义
+    boot1:
+      # 匹配的路由规则
+      path: /pa/**
+      # 路由的目标服务名
+      serviceId: PA-SERVICE
+    boot2:
+      # 匹配的路由规则
+      path: /pb/**
+      # 路由的目标服务名
+      serviceId: PB-SERVICE
+    boot3:
+      # 匹配的路由规则
+      path: /pc/**
+      # 路由的目标服务名
+      serviceId: PC-SERVICE
+    boot4:
+      # 匹配的路由规则
+      path: /pd/**
+      # 路由的目标服务名
+      serviceId: PD-SERVICE
+
+
+
